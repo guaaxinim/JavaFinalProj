@@ -1,0 +1,74 @@
+
+*****************************************************************************************
+********** App de controle de atividades no Genshin Impact ******************************
+
+
+Features (! -> Importante):
+
+    - Armazenar conquistas (não) alcançadas. (!!!)
+    - Armazenar lista de personagens obtidos e desejados. (!!!)
+    - Configurar plano de farm semanal. (!!)
+    - Registrar histórico de desejos. (!)
+    - Registrar perfil de personagens favoritos. (!)
+
+*****************************************************************************************
+
+Classes:
+
+    Achievment : Representa uma conquista, possui atributos (Name, SinceVersion, Set, Level, Status);
+    Character : Representa um personagem, possui atributos (Name, Vision, Weapon, Rarity, Constellations, MeetDate);
+
+
+-----------------------------------------------------------------------------------------
+
+Banco de Dados:
+
+    Tabelas:
+
+        Achievments : Armazena conquistas, possui campos (Name, Since, Set, Level, Status);
+            (Name) = Nome da conquista.
+            (Since) = Versão de implementação da conquista.
+            (Set) = Conjunto do qual a conquista pertence.
+            (Level) = Nível alcançado da conquista.
+            (Status) = Alcançada ou Não.
+        
+        Characters : Armazena personagems obtidos, possui campos (Name, Vision, Weapon, Rarity, Constelations, Meet Date);
+            (Name) = Nome do personagem.
+            (Vision) = Visão do personagem.
+            (Weapon) = TIpo de arma do personagem.
+            (Rarity) = Raridade do personagem.
+            (Constelations) = Constelação máxima obtida do personagem.
+            (Meet Date) = Data de adesão do personagem.
+        
+        Wishlist : Armazena personagens desejados, possui campos (Name, Vision, Weapon, Rarity, Available);
+            (Name) =  Nome do personagem.
+            (vision) = Visão do personagem.
+            (Weapon) = Tipo de arma do personagem.
+            (Rarity) = Raridade do personagem.
+            (Available) = Disponibilidade do personagem no jogo.
+
+
+-----------------------------------------------------------------------------------------
+
+Interface:
+
+    Telas:
+
+        Tela Inicial : Apresenta opções de apresentação de informações (Lista personagens obtidos,
+                                                                        Lista personagens desejados,
+                                                                        Lista conquistas,
+                                                                        Plano de farm semanal,
+                                                                        Histórico de desejos,
+                                                                        Perfil de personagens favoritos);
+
+        Lista personagens obtidos : Apresenta a tabela 'Characters';
+
+        Lista personagens desejados : Apresenta a tabela 'Wishlist';
+
+        Lista conquistas : Apresenta as conquistas (não) alcançadas;
+
+        Plano farm semanal : Apresenta a rotina semanal de farm;
+
+        Histórico de desejos : Apresenta o histórico de desejos;
+
+        Perfil de personagens favoritos : Apresenta o perfil dos personagens favoritos;
