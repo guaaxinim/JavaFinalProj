@@ -1,7 +1,37 @@
 import util.CheckItemInArray;
 import util.CharacterConstants;
 
-public class Character {
+/**
+ * The {@code Character} represents a Genshin Impact character and its atributtes.<p>
+ * It must be used to create characters instances, like:
+ * <p>
+ * <blockquuote><pre>
+ * Character character = new Character("Bennet", "Pyro", "Sword", "4-STAR", "C6", "02/02/2022")
+ * </pre></blockquote>
+ * <p>
+ * And, possibly, storage these values in a database's table.<p>
+ * Methods:<p>
+ * <blockquote><pre>
+ * Modifiers
+ * setName(); // Set a value to character's name.
+ * setVision(); // Set a value to character's vision.
+ * setWeapon(); // Set a value to character's weapon.
+ * setRarity(); // Set a value to character's Rarity.
+ * setConstellationsLevel(); // Set a value to character's constellations level.
+ * setMeetDate(); // Set a value to Character's obtaining date.
+ * </pre></blockquote>
+ * <p>
+ * <blockquote><pre>
+ * Returners
+ * getName(); // Return character's name value.
+ * getVision(); // Return character's vision value.
+ * getWeapon(); // Return character's weapon value.
+ * getRarity(); // Return character's rarity value.
+ * getConstellationsLevel(); // Return character's constellations level value.
+ * getMeetDate(); // Return character's obtaining date value.
+ * </pre></blockquote>
+ */
+public final class Character {
 
     CheckItemInArray check = new CheckItemInArray();
 
@@ -76,7 +106,7 @@ public class Character {
 
     /**
      * Set character's constellations level.
-     * @param constellations character's (new) constellations levels.
+     * @param constellationsLevel character's (new) constellations levels.
      */
     public void setConstellationsLevel(String constellationsLevel){
         boolean inArray = check.inArray(CharacterConstants.CONSTELLATIONS_LEVELS, constellationsLevel);
