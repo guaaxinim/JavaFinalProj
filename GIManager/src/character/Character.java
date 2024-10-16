@@ -1,5 +1,10 @@
-import util.CheckItemInArray;
-import util.CharacterConstants;
+package character;
+
+import consts.CharacterName;
+import consts.Vision;
+import consts.Weapon;
+import consts.Rarity;
+import consts.ConstellationsLevel;
 
 /**
  * The {@code Character} represents a Genshin Impact character and its atributtes.<p>
@@ -33,13 +38,11 @@ import util.CharacterConstants;
  */
 public final class Character {
 
-    CheckItemInArray check = new CheckItemInArray();
-
-    private String name;
-    private String vision;
-    private String weapon;
-    private String rarity;
-    private String constellationsLevel;
+    private CharacterName name;
+    private Vision vision;
+    private Weapon weapon;
+    private Rarity rarity;
+    private ConstellationsLevel constellationsLevel;
     private String meetDate;
 
     /**
@@ -51,7 +54,7 @@ public final class Character {
      * @param constellationsLevel character's constellations level.
      * @param meetDate character's obtaining date.
      */
-    public Character(String name, String vision, String weapon, String rarity, String constellationsLevel, String meetDate){
+    public Character(CharacterName name, Vision vision, Weapon weapon, Rarity rarity, ConstellationsLevel constellationsLevel, String meetDate){
         this.name = name;
         this.vision = vision;
         this.weapon = weapon;
@@ -64,7 +67,7 @@ public final class Character {
      * Set character's name value.
      * @param name character's (new) name.
      */
-    public void setName(String name){
+    public void setName(CharacterName name){
         this.name = name;
     }
 
@@ -72,48 +75,36 @@ public final class Character {
      * Set character's vision value.
      * @param vision (new) vision that character wields.
      */
-    public void setVision(String vision){
-        boolean inArray = check.inArray(CharacterConstants.VISIONS, vision);
-        if (inArray){
-            this.vision = vision;
-        }
-        else{System.out.println("Invalid Vision!");}
+    public void setVision(Vision vision){
+        //boolean inArray = check.inArray(CharacterConstants.VISIONS, vision);
+        this.vision = vision;
     }
 
     /**
      * Set character's weapon value.
      * @param weapon (new) weapon that character wields.
      */
-    public void setWeapon(String weapon){
-        boolean inArray = check.inArray(CharacterConstants.WEAPONS, weapon);
-        if (inArray){
-            this.weapon = weapon;
-        }
-        else{System.out.println("invalid Weapon!");}
+    public void setWeapon(Weapon weapon){
+        //boolean inArray = check.inArray(CharacterConstants.WEAPONS, weapon);
+        this.weapon = weapon;
     }
 
     /**
      * Set character's rarity value.
      * @param rarity character's (new) rarity.
      */
-    public void setRarity(String rarity){
-        boolean inArray = check.inArray(CharacterConstants.RARIIES, rarity);
-        if (inArray){
-            this.rarity = rarity;
-        }
-        else{System.out.println("Invalid Rarity!");}
+    public void setRarity(Rarity rarity){
+        //boolean inArray = check.inArray(CharacterConstants.RARIIES, rarity);
+        this.rarity = rarity;
     }
 
     /**
      * Set character's constellations level.
      * @param constellationsLevel character's (new) constellations levels.
      */
-    public void setConstellationsLevel(String constellationsLevel){
-        boolean inArray = check.inArray(CharacterConstants.CONSTELLATIONS_LEVELS, constellationsLevel);
-        if (inArray){
-            this.constellationsLevel = constellationsLevel;
-        }
-        else{System.out.println("Invalid Constellations Level!");}
+    public void setConstellationsLevel(ConstellationsLevel constellationsLevel){
+        //boolean inArray = check.inArray(CharacterConstants.CONSTELLATIONS_LEVELS, constellationsLevel);
+        this.constellationsLevel = constellationsLevel;
     }
 
     /**
@@ -128,7 +119,7 @@ public final class Character {
      * Return character's name value.
      * @return character's name.
      */
-    public String getName(){
+    public CharacterName getName(){
         return this.name;
     }
 
@@ -136,7 +127,7 @@ public final class Character {
      * Return character's vision value.
      * @return character's vision.
      */
-    public String getVision(){
+    public Vision getVision(){
         return this.vision;
     }
 
@@ -144,7 +135,7 @@ public final class Character {
      * Return character's weapon value.
      * @return character's weapon.
      */
-    public String getWeapon(){
+    public Weapon getWeapon(){
         return this.weapon;
     }
 
@@ -152,7 +143,7 @@ public final class Character {
      * Return character's rarity value.
      * @return character's rarity.
      */
-    public String getRarity(){
+    public Rarity getRarity(){
         return this.rarity;
     }
 
@@ -160,7 +151,7 @@ public final class Character {
      * Return character's constellations level value.
      * @return character's constellations level.
      */
-    public String getConstellationsLevel(){
+    public ConstellationsLevel getConstellationsLevel(){
         return this.constellationsLevel;
     }
 
