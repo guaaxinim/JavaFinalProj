@@ -1,0 +1,9 @@
+com\mycompany\character\CharacterApp.class
+com\mycompany\consts\Vision.class
+com\mycompany\consts\Weapon.class
+com\mycompany\consts\Rarity.class
+com\mycompany\character\Character.class
+com\mycompany\database\SQLComandsApp.class
+com\mycompany\consts\CharacterName.class
+com\mycompany\consts\ConstellationsLevel.class
+com\mycompany\database\DataBaseConsts.class

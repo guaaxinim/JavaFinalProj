@@ -1,16 +1,20 @@
-package character;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
 
-import consts.CharacterName;
-import consts.Vision;
-import consts.Weapon;
-import consts.Rarity;
-import consts.ConstellationsLevel;
+package com.mycompany.character;
+
+import com.mycompany.consts.CharacterName;
+import com.mycompany.consts.Vision;
+import com.mycompany.consts.Weapon;
+import com.mycompany.consts.Rarity;
+import com.mycompany.consts.ConstellationsLevel;
 
 /**
  * The {@code Character} represents a Genshin Impact character and its atributtes.<p>
  * It must be used to create characters instances, like:
  * <p>
- * <blockquuote><pre>
+ * <blockquote><pre>
  * Character character = new Character("Bennet", "Pyro", "Sword", "4-STAR", "C6", "02/02/2022")
  * </pre></blockquote>
  * <p>
@@ -163,3 +167,4 @@ public final class Character {
         return this.meetDate;
     }
 }
+

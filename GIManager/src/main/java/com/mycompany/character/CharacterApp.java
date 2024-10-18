@@ -1,12 +1,20 @@
-import character.Character;
-import consts.CharacterName;
-import consts.Vision;
-import consts.Weapon;
-import consts.Rarity;
-import consts.ConstellationsLevel;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.character;
 
-public class User {
+import com.mycompany.consts.CharacterName;
+import com.mycompany.consts.Vision;
+import com.mycompany.consts.Weapon;
+import com.mycompany.consts.Rarity;
+import com.mycompany.consts.ConstellationsLevel;
 
+/**
+ *
+ * @author luisr
+ */
+public class CharacterApp {
     public static void main(String[] args) {       
         Character char1 = new Character(CharacterName.ARLECCHINO, Vision.PYRO, Weapon.POLEARM, Rarity.FIVE_STARS, ConstellationsLevel.C0, "2024/10/04");
 
