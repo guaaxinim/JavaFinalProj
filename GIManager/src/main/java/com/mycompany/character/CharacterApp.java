@@ -4,9 +4,12 @@
  */
 package com.mycompany.character;
 
+import java.sql.SQLException;
+
 import com.mycompany.consts.CharacterName;
 import com.mycompany.consts.Vision;
 import com.mycompany.consts.Weapon;
+import com.mycompany.database.SQLCommandsApp;
 import com.mycompany.consts.Rarity;
 import com.mycompany.consts.ConstellationsLevel;
 
@@ -15,25 +18,22 @@ import com.mycompany.consts.ConstellationsLevel;
  * @author luisr
  */
 public class CharacterApp {
+    
     public static void main(String[] args) {       
-        Character char1 = new Character(CharacterName.ARLECCHINO, Vision.PYRO, Weapon.POLEARM, Rarity.FIVE_STARS, ConstellationsLevel.C0, "2024/10/04");
+        Character char1 = new Character(CharacterName.KINICH, Vision.DENDRO, Weapon.CLAYMORE, Rarity.FIVE_STARS, ConstellationsLevel.C1, "18/09/2024");
 
-        System.out.println(char1.getName());
-        System.out.println(char1.getVision());
-        System.out.println(char1.getWeapon());
-        System.out.println(char1.getRarity());
-        System.out.println(char1.getConstellationsLevel());
+        SQLCommandsApp.loadDriver();
+        SQLCommandsApp.createConnection();
 
-        char1.setName(CharacterName.BENNET);
-        char1.setVision(Vision.PYRO);
-        char1.setWeapon(Weapon.SWORD);
-        char1.setRarity(Rarity.FOUR_STARS);
-        char1.setConstellationsLevel(ConstellationsLevel.C6);
-
-        System.out.println(char1.getName());
-        System.out.println(char1.getVision());
-        System.out.println(char1.getWeapon());
-        System.out.println(char1.getRarity());
-        System.out.println(char1.getConstellationsLevel());
+        try {
+            SQLCommandsApp.insertObtainedCharacter(char1.getName(),
+                                                   char1.getVision(),
+                                                   char1.getWeapon(),
+                                                   char1.getRarity(),
+                                                   char1.getConstellationsLevel(),
+                                                   char1.getMeetDate());
+        } catch (SQLException SQLQueryError) {
+            System.out.println("Character insertion failed!");
+        }
     }
 }

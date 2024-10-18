@@ -9,11 +9,25 @@ package com.mycompany.consts;
  * @author luisr
  */
 public enum Vision {
-    ANEMO,
-    CRYO,
-    DENDRO,
-    ELECTRO,
-    GEO,
-    HYDRO,
-    PYRO
+    ANEMO("Anemo"),
+    CRYO("Cryo"),
+    DENDRO("Dendro"),
+    ELECTRO("Electro"),
+    GEO("Geo"),
+    HYDRO("Hydro"),
+    PYRO("Pyro");
+
+    private String characterVision;
+
+    Vision(String characterVision){
+        this.characterVision = characterVision;
+    }
+
+    /**
+     * @return character's vision
+     */
+    @Override
+    public String toString() {
+        return this.characterVision;
+    }
 }

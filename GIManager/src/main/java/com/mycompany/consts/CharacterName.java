@@ -5,26 +5,134 @@
 package com.mycompany.consts;
 
 /**
- *
+ * Contains all Genshin Impact characters's names.
  * @author luisr
  */
 public enum CharacterName {
-    ALBEDO, ALHAITHAM, ALOY, AMBER, ARATAKI_ITTO,
-    ARLECCHINO, BARBARA, BEIDOU, BENNET, CANDACE,
-    CHARLOTTE, CHASCA, CHEVREUSE, CHIORI, CHONGYUN,
-    CLORINDE, COLLEI, CYNO, DEHYA, DILUC,
-    DIONA, DORI, EMILIE, EULA, FARUZAN,
-    FISCHL, FREMINET, FURINA, GAMING, GANYU,
-    GOROU, HUTAO, JEAN, KACHINA, KAEDEHARA_KAZUHA,
-    KAEYA, KAMISATO_AYAKA, KAMISATO_AYATO, KAVEH, KEQING,
-    KINICH, KIRARA, KLEE, KUJOU_SARA, KUKI_SHINOBU,
-    LAYLA, LISA, LYNETTE, LYNEY, MIKA,
-    MONA, MUALANI, NAHIDA, NAVIA, NEUVILLETTE,
-    NILOU, NINGGUANG, NOELLE, ORORON, QIQI,
-    RAIDEN_SHOGUN, RAZOR, ROSARIA, SANGONOMIYA_KOKOMI, SAYU,
-    SETHOS, SHENHE, SHIKANOIN_HEIZOU, SIGEWINNE, SUCROSE,
-    TARTAGLIA, THOMA, TIGHNARI, VENTI, WANDERER,
-    WRIOTHESLEY, XIANGLING, XIANYUN, XIAO, XILONEN,
-    XINGQIU, XINYAN, YAE_MIKO, YANFEI, YAOYAO,
-    YELAN, YOIMIYA, YUNJIN, ZHONGLI
+    // ------------------------------------------------------- |A|
+ALBEDO("Albedo"),
+    ALHAITHAM("Alhaitham"),
+    ALOY("Aloy"),
+    AMBER("Amber"),
+    ARATAKI_ITTO("Arataki Itto"),
+    ARLECCHINO("Arlecchino"),
+    // ------------------------------------------------------- |B|
+    BARBARA("Barbara"),
+    BEIDOU("Beidou"),
+    BENNET("Bennet"),
+    // ------------------------------------------------------- |C|
+    CANDACE("Candace"),
+    CHARLOTTE("Charlotte"),
+    CHASCA("Chasca"),
+    CHEVREUSE("Chevreuse"),
+    CHIORI("Chiori"),
+    CHONGYUN("CHongyun"),
+    CLORINDE("Clorinde"),
+    COLLEI("Collei"),
+    CYNO("Cyno"),
+    // ------------------------------------------------------- |D|
+    DEHYA("Dehya"),
+    DILUC("Diluc"),
+    DIONA("Diona"),
+    DORI("Dori"),
+    // ------------------------------------------------------- |E|
+    EMILIE("Emilie"),
+    EULA("Eula"),
+    // ------------------------------------------------------- |F|
+    FARUZAN("Faruzan"),
+    FISCHL("Fischl"),
+    FREMINET("Freminet"),
+    FURINA("Furina"),
+    // ------------------------------------------------------- |G|
+    GAMING("Gaming"),
+    GANYU("Ganyu"),
+    GOROU("Gorou"),
+    // ------------------------------------------------------- |H|
+    HUTAO("Hutao"),
+    // ------------------------------------------------------- |J|
+    JEAN("Jean"),
+    // ------------------------------------------------------- |K|
+    KACHINA("Kachina"),
+    KAEDEHARA_KAZUHA("Kaedehara Kazuha"),
+    KAEYA("Kaeya"),
+    KAMISATO_AYAKA("Kamisato Ayaka"),
+    KAMISATO_AYATO("Kamisato Ayato"),
+    KAVEH("Kaveh"),
+    KEQING("Keqing"),
+    KINICH("Kinich"),
+    KIRARA("Kirara"),
+    KLEE("Klee"),
+    KUJOU_SARA("Kujou Sara"),
+    KUKI_SHINOBU("Kuki Shinobu"),
+    // ------------------------------------------------------- |L|
+    LAYLA("LAyla"),
+    LISA("Lisa"),
+    LYNETTE("Lynette"),
+    LYNEY("Lyney"),
+    // ------------------------------------------------------- |M|
+    MIKA("Mika"),
+    MONA("Mona"),
+    MUALANI("Mualani"),
+    // ------------------------------------------------------- |N|
+    NAHIDA("Nahida"),
+    NAVIA("Navia"),
+    NEUVILLETTE("Neuvillette"),
+    NILOU("Nilou"),
+    NINGGUANG("Ningguang"),
+    NOELLE("Noelle"),
+    // ------------------------------------------------------- |O|
+    ORORON("Ororon"),
+    // ------------------------------------------------------- |Q|
+    QIQI("Qiqi"),
+    // ------------------------------------------------------- |R|
+    RAIDEN_SHOGUN("Raiden Shogun"),
+    RAZOR("Razor"),
+    ROSARIA("Rosaria"),
+    // ------------------------------------------------------- |S|
+    SANGONOMIYA_KOKOMI("Sangonimiya Kokomi"),
+    SAYU("Sayu"),
+    SETHOS("Sethos"),
+    SHENHE("Shenhe"),
+    SHIKANOIN_HEIZOU("Shikanoin Heizou"),
+    SIGEWINNE("Sigewinne"),
+    SUCROSE("Sucrose"),
+    // ------------------------------------------------------- |T|
+    TARTAGLIA("Tartaglia"),
+    THOMA("Thoma"),
+    TIGHNARI("Tighnari"),
+    // ------------------------------------------------------- |V|
+    VENTI("Venti"),
+    // ------------------------------------------------------- |W|
+    WANDERER("Wanderer"),
+    WRIOTHESLEY("Wriothesley"),
+    // ------------------------------------------------------- |X|
+    XIANGLING("Xiangling"),
+    XIANYUN("Xianyun"),
+    XIAO("Xiao"),
+    XILONEN("Xilonen"),
+    XINGQIU("Xingqiu"),
+    XINYAN("Xinyan"),
+    // ------------------------------------------------------- |Y|
+    YAE_MIKO("Yae Miko"),
+    YANFEI("Yanfei"),
+    YAOYAO("Yaoyao"),
+    YELAN("Yelan"),
+    YOIMIYA("Yoimiya"),
+    YUNJIN("Yunjin"),
+    // ------------------------------------------------------- |Z|
+    ZHONGLI("Zhongli");
+
+    private String characterName;
+
+    CharacterName(String characterName){
+        this.characterName = characterName;
+    }
+
+    /**
+     * @return character's name
+     */
+    @Override
+    public String toString() {
+        return this.characterName;
+    }
 }

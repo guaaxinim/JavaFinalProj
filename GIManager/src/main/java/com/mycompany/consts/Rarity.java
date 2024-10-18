@@ -9,6 +9,20 @@ package com.mycompany.consts;
  * @author luisr
  */
 public enum Rarity {
-    FOUR_STARS,
-    FIVE_STARS
+    FOUR_STARS("4-stars"),
+    FIVE_STARS("5-stars");
+
+    private String characterRarity;
+
+    Rarity(String characterRarity){
+        this.characterRarity = characterRarity;
+    }
+
+    /**
+     * @return character's rarity
+     */
+    @Override
+    public String toString() {
+        return this.characterRarity;
+    }
 }

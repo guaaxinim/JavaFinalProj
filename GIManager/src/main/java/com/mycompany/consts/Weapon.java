@@ -9,9 +9,23 @@ package com.mycompany.consts;
  * @author luisr
  */
 public enum Weapon {
-    BOW,
-    CATALYST,
-    CLAYMORE,
-    POLEARM,
-    SWORD
+    BOW("Bow"),
+    CATALYST("Catalyst"),
+    CLAYMORE("Claymore"),
+    POLEARM("Polearm"),
+    SWORD("Sword");
+
+    private String characterWeapon;
+
+    Weapon(String characterWeapon){
+        this.characterWeapon = characterWeapon;
+    }
+
+    /**
+     * @return character's weapon
+     */
+    @Override
+    public String toString() {
+        return this.characterWeapon;
+    }
 }
