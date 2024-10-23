@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
+import com.mycompany.character.Character;
 import com.mycompany.consts.CharacterName;
 import com.mycompany.consts.Vision;
 import com.mycompany.consts.Weapon;
@@ -23,6 +25,7 @@ public class SQLCommandsApp implements DataBaseConsts{
 
     static Connection connection = null;
     static PreparedStatement preparedStatement;
+    static ResultSet resultSet;
     
     public static void loadDriver() {
         try {
@@ -32,7 +35,6 @@ public class SQLCommandsApp implements DataBaseConsts{
             System.out.println("Driver JDBC not founded!");
         }
     }
-
 
     public static void createConnection(){
         try {
@@ -45,6 +47,12 @@ public class SQLCommandsApp implements DataBaseConsts{
 
     /**
      * Insert a new character in 'obtained_characters' table.
+     * @param characterName
+     * @param characterVision
+     * @param characterWeapon
+     * @param characterRarity
+     * @param characterConstellationsLevel
+     * @param characterMeetDate
      * @throws SQLException
      */
     public static void insertObtainedCharacter(CharacterName characterName, Vision characterVision, Weapon characterWeapon, Rarity characterRarity, ConstellationsLevel characterConstellationsLevel, String characterMeetDate) throws SQLException{
@@ -67,8 +75,72 @@ public class SQLCommandsApp implements DataBaseConsts{
             preparedStatement.executeUpdate();
             System.out.println("Character insertion successful!");
         } catch (SQLException statementCreationError) {
-            System.out.println("SQL Query execution failed!");
+            System.out.println("Character insertion failed!");
         }
+    }
+
+    public static void updateObtainedCharacter(){
+
+    }
+
+    /**
+     * Delete a character from 'obtained_characters' values.
+     * @param charaterName
+     * @throws SQLException
+     */
+    public static void deleteObtainedCharacter(CharacterName charaterName) throws SQLException{
+        
+        String characterToRemoveName = charaterName.toString();
+        
+        try {            
+            String sqlDeleteObtainedCharacter = "DELETE FROM obtained_characters WHERE name = (?)";
+            preparedStatement = connection.prepareStatement(sqlDeleteObtainedCharacter);
+            preparedStatement.setString(1, characterToRemoveName);
+            preparedStatement.executeUpdate();
+            System.out.println("Character remotion successful!");
+        } catch (SQLException characterRemotionError) {
+            System.out.println("Character remotion failed!");
+        }
+    }
+
+    /**
+     * Select a character from 'obtained_characters' table.
+     * @param characterName
+     * @return Character instance with selected character's values
+     * @throws SQLException
+     */
+    public static Character selectObtainedCharacter(CharacterName characterName) throws SQLException{
+
+        String characterToSelectName = characterName.toString();
+        String name;
+        String vision;
+        String weapon;
+        String rarity;
+        String constellationsLevel;
+        String meetDate;
+
+        try {
+            String sqlSelectObtainedCharacter = "SELECT * FROM obtained_characters WHERE name = (?)";
+            preparedStatement = connection.prepareStatement(sqlSelectObtainedCharacter);
+            preparedStatement.setString(1, characterToSelectName);
+            resultSet = preparedStatement.executeQuery();
+            System.out.println("Character Selected:");
+
+            while (resultSet.next()) {
+                name = resultSet.getString("name");
+                vision = resultSet.getString("vision");
+                weapon = resultSet.getString("weapon");
+                rarity = resultSet.getString("rarity");
+                constellationsLevel = resultSet.getString("constellations_level");
+                meetDate = resultSet.getString("meet_date");
+
+                Character character = new Character(CharacterName.fromString(name), Vision.fromString(vision), Weapon.fromString(weapon), Rarity.fromString(rarity), ConstellationsLevel.fromString(constellationsLevel), meetDate);
+                return character;
+            }
+        } catch (SQLException characterSelectionError) {
+            System.out.println("Character selection failed!");
+        }
+        throw new IllegalArgumentException("Character selection failed!");
     }
 
 

@@ -19,12 +19,14 @@ import com.mycompany.consts.ConstellationsLevel;
  */
 public class CharacterApp {
     
-    public static void main(String[] args) {       
+    private static Character character;
+    
+    public static void main(String[] args){       
         Character char1 = new Character(CharacterName.KINICH, Vision.DENDRO, Weapon.CLAYMORE, Rarity.FIVE_STARS, ConstellationsLevel.C1, "18/09/2024");
 
         SQLCommandsApp.loadDriver();
         SQLCommandsApp.createConnection();
-
+        /*
         try {
             SQLCommandsApp.insertObtainedCharacter(char1.getName(),
                                                    char1.getVision(),
@@ -34,6 +36,26 @@ public class CharacterApp {
                                                    char1.getMeetDate());
         } catch (SQLException SQLQueryError) {
             System.out.println("Character insertion failed!");
+        }*/
+
+        /*
+        try {
+            SQLCommandsApp.deleteObtainedCharacter(CharacterName.ARLECCHINO);
+        } catch (SQLException characterRemotionError) {
+            System.out.println("Character remotion failed!");
         }
+        */
+
+        try{
+            character = SQLCommandsApp.selectObtainedCharacter(CharacterName.KINICH);
+        } catch (SQLException characterSelectionError) {
+            System.out.println("Character selection failed");
+        }
+        System.out.println(character.getName());
+        System.out.println(character.getVision());
+        System.out.println(character.getWeapon());
+        System.out.println(character.getRarity());
+        System.out.println(character.getConstellationsLevel());
+        System.out.println(character.getMeetDate());
     }
 }

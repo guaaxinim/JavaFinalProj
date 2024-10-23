@@ -59,12 +59,17 @@ public final class Character {
      * @param meetDate character's obtaining date.
      */
     public Character(CharacterName name, Vision vision, Weapon weapon, Rarity rarity, ConstellationsLevel constellationsLevel, String meetDate){
-        this.name = name;
-        this.vision = vision;
-        this.weapon = weapon;
-        this.rarity = rarity;
-        this.constellationsLevel = constellationsLevel;
-        this.meetDate = meetDate;
+        if (name == null || vision == null || weapon == null || rarity == null || constellationsLevel == null || meetDate == null){
+            System.out.println("Cannot create a Character with 'null' parameters!");
+        }
+        else{
+            this.name = name;
+            this.vision = vision;
+            this.weapon = weapon;
+            this.rarity = rarity;
+            this.constellationsLevel = constellationsLevel;
+            this.meetDate = meetDate;
+        }
     }
 
     /**

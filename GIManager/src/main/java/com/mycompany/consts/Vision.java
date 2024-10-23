@@ -23,6 +23,24 @@ public enum Vision {
         this.characterVision = characterVision;
     }
 
+    public String getVision(){
+        return characterVision;
+    }
+
+    /**
+     * Take a String value and check if there is a match among the enum constants.
+     * @param visionString
+     * @return Vision constant
+     */
+    public static Vision fromString(String visionString){
+        for (Vision vision : Vision.values()){
+            if (vision.getVision().equalsIgnoreCase(visionString)){
+                return vision;
+            }
+        }
+        throw new IllegalArgumentException("Vision is not in enum");
+    }
+    
     /**
      * @return character's vision
      */

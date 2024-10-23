@@ -17,7 +17,25 @@ public enum Rarity {
     Rarity(String characterRarity){
         this.characterRarity = characterRarity;
     }
+    
+    public String getRarity(){
+        return characterRarity;
+    }
 
+    /**
+     * Take a String value and check if there is a match among the enum constants.
+     * @param rarityString
+     * @return Rarity constant
+     */
+    public static Rarity fromString(String rarityString){
+        for (Rarity rarity : Rarity.values()){
+            if (rarity.getRarity().equalsIgnoreCase(rarityString)){
+                return rarity;
+            }
+        }
+        throw new IllegalArgumentException("Rarity is not in enum!");
+    }
+    
     /**
      * @return character's rarity
      */

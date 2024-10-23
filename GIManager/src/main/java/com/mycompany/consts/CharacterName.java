@@ -10,7 +10,7 @@ package com.mycompany.consts;
  */
 public enum CharacterName {
     // ------------------------------------------------------- |A|
-ALBEDO("Albedo"),
+    ALBEDO("Albedo"),
     ALHAITHAM("Alhaitham"),
     ALOY("Aloy"),
     AMBER("Amber"),
@@ -126,6 +126,24 @@ ALBEDO("Albedo"),
 
     CharacterName(String characterName){
         this.characterName = characterName;
+    }
+
+    public String getName(){
+        return characterName;
+    }
+
+    /**
+     * Take a String value and check if there is a match among the enum constants.
+     * @param nameString
+     * @return CharacterName constant
+     */
+    public static CharacterName fromString(String nameString){
+        for (CharacterName name : CharacterName.values()){
+            if (name.getName().equalsIgnoreCase(nameString)){
+                return name;
+            }
+        }
+        throw new IllegalArgumentException("Name is not in enum!");
     }
 
     /**
