@@ -5,7 +5,7 @@
 package com.mycompany.consts;
 
 /**
- * Contains all Genshin Impact characters's names.
+ * Contains all Genshin Impact characters names.
  * @author luisr
  */
 public enum CharacterName {
@@ -26,7 +26,7 @@ public enum CharacterName {
     CHASCA("Chasca"),
     CHEVREUSE("Chevreuse"),
     CHIORI("Chiori"),
-    CHONGYUN("CHongyun"),
+    CHONGYUN("Chongyun"),
     CLORINDE("Clorinde"),
     COLLEI("Collei"),
     CYNO("Cyno"),
@@ -65,7 +65,7 @@ public enum CharacterName {
     KUJOU_SARA("Kujou Sara"),
     KUKI_SHINOBU("Kuki Shinobu"),
     // ------------------------------------------------------- |L|
-    LAYLA("LAyla"),
+    LAYLA("Layla"),
     LISA("Lisa"),
     LYNETTE("Lynette"),
     LYNEY("Lyney"),
@@ -89,7 +89,7 @@ public enum CharacterName {
     RAZOR("Razor"),
     ROSARIA("Rosaria"),
     // ------------------------------------------------------- |S|
-    SANGONOMIYA_KOKOMI("Sangonimiya Kokomi"),
+    SANGONOMIYA_KOKOMI("Sangonomiya Kokomi"),
     SAYU("Sayu"),
     SETHOS("Sethos"),
     SHENHE("Shenhe"),

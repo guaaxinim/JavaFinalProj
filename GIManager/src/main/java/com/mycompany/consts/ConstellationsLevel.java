@@ -6,7 +6,7 @@ package com.mycompany.consts;
  */
 
 /**
- *
+ * Contains all Genshin Impact characters constellations levels.
  * @author luisr
  */
 public enum ConstellationsLevel {

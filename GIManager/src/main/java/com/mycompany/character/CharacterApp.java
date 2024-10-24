@@ -34,7 +34,7 @@ public class CharacterApp {
                                                    char1.getRarity(),
                                                    char1.getConstellationsLevel(),
                                                    char1.getMeetDate());
-        } catch (SQLException SQLQueryError) {
+        } catch (SQLException characterInsertionError) {
             System.out.println("Character insertion failed!");
         }*/
 
@@ -46,6 +46,7 @@ public class CharacterApp {
         }
         */
 
+        /*
         try{
             character = SQLCommandsApp.selectObtainedCharacter(CharacterName.KINICH);
         } catch (SQLException characterSelectionError) {
@@ -57,5 +58,12 @@ public class CharacterApp {
         System.out.println(character.getRarity());
         System.out.println(character.getConstellationsLevel());
         System.out.println(character.getMeetDate());
+        */
+
+        try {
+            SQLCommandsApp.updateObtainedCharacter(CharacterName.NEUVILLETTE);
+        } catch (SQLException characterUpdateError) {
+            System.out.println("Character update failed!");
+        }
     }
 }

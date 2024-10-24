@@ -5,7 +5,7 @@
 package com.mycompany.consts;
 
 /**
- *
+ * Contains all Genshin Impact characters weapons.
  * @author luisr
  */
 public enum Weapon {

@@ -74,13 +74,26 @@ public class SQLCommandsApp implements DataBaseConsts{
             preparedStatement.setString(6, characterMeetDate);
             preparedStatement.executeUpdate();
             System.out.println("Character insertion successful!");
-        } catch (SQLException statementCreationError) {
+        } catch (SQLException characterInsertionError) {
             System.out.println("Character insertion failed!");
         }
     }
 
-    public static void updateObtainedCharacter(){
+    public static void updateObtainedCharacter(CharacterName characterName) throws SQLException{
 
+            String characterToUpdateName = characterName.toString();
+        
+        try {
+            String sqlUpdateObtainedCharacter = "UPDATE obtained_characters SET constellations_level = (?), meet_date = (?) WHERE name = (?)";
+            preparedStatement = connection.prepareStatement(sqlUpdateObtainedCharacter);
+            preparedStatement.setString(3, characterToUpdateName);
+            preparedStatement.setString(1, "C0");
+            preparedStatement.setString(2, "01/01/2024");
+            preparedStatement.executeUpdate();
+            System.out.println("Character update successful!");
+        } catch (SQLException characterUpdateError) {
+            System.out.println("Character update failed!");
+        }
     }
 
     /**
