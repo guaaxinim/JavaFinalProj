@@ -56,26 +56,38 @@ public class SQLCommandsApp implements DataBaseConsts{
      * @throws SQLException
      */
     public static void insertObtainedCharacter(CharacterName characterName, Vision characterVision, Weapon characterWeapon, Rarity characterRarity, ConstellationsLevel characterConstellationsLevel, String characterMeetDate) throws SQLException{
-       
-       String name = characterName.toString();
-       String vision = characterVision.toString();
-       String rarity = characterRarity.toString();
-       String weapon = characterWeapon.toString();
-       String constellationsLevel = characterConstellationsLevel.toString();
+
+        boolean characterNotYetRegistered = false;
 
         try {
-            String sqlInsertObtainedCharacter = "INSERT INTO obtained_characters (name, vision, weapon, rarity, constellations_level, meet_date) VALUES (?, ?, ?, ?, ?, ?)";
-            preparedStatement = connection.prepareStatement(sqlInsertObtainedCharacter);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, vision);
-            preparedStatement.setString(3, weapon);
-            preparedStatement.setString(4, rarity);
-            preparedStatement.setString(5, constellationsLevel);
-            preparedStatement.setString(6, characterMeetDate);
-            preparedStatement.executeUpdate();
-            System.out.println("Character insertion successful!");
-        } catch (SQLException characterInsertionError) {
-            System.out.println("Character insertion failed!");
+            Character characterToInsert = selectObtainedCharacter(characterName);
+            System.out.println("Character "+characterToInsert.getName()+" is already in list!");
+            System.out.println("Insertion failed!");
+        } catch (IllegalArgumentException characterSelectionError) {
+            characterNotYetRegistered = true;
+        }
+
+        if (characterNotYetRegistered){
+            String name = characterName.toString();
+            String vision = characterVision.toString();
+            String rarity = characterRarity.toString();
+            String weapon = characterWeapon.toString();
+            String constellationsLevel = characterConstellationsLevel.toString();
+    
+            try {
+                String sqlInsertObtainedCharacter = "INSERT INTO obtained_characters (name, vision, weapon, rarity, constellations_level, meet_date) VALUES (?, ?, ?, ?, ?, ?)";
+                preparedStatement = connection.prepareStatement(sqlInsertObtainedCharacter);
+                preparedStatement.setString(1, name);
+                preparedStatement.setString(2, vision);
+                preparedStatement.setString(3, weapon);
+                preparedStatement.setString(4, rarity);
+                preparedStatement.setString(5, constellationsLevel);
+                preparedStatement.setString(6, characterMeetDate);
+                preparedStatement.executeUpdate();
+                System.out.println("Character insertion successful!");
+            } catch (SQLException characterInsertionError) {
+                System.out.println("Character insertion failed!");
+            }
         }
     }
 
@@ -137,7 +149,7 @@ public class SQLCommandsApp implements DataBaseConsts{
             preparedStatement = connection.prepareStatement(sqlSelectObtainedCharacter);
             preparedStatement.setString(1, characterToSelectName);
             resultSet = preparedStatement.executeQuery();
-            System.out.println("Character Selected:");
+            System.out.println("Character Selection successful!");
 
             while (resultSet.next()) {
                 name = resultSet.getString("name");

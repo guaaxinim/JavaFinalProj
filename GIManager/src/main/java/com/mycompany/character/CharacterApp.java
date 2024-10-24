@@ -6,6 +6,7 @@ package com.mycompany.character;
 
 import java.sql.SQLException;
 
+import com.mycompany.consts.AllCharacters;
 import com.mycompany.consts.CharacterName;
 import com.mycompany.consts.Vision;
 import com.mycompany.consts.Weapon;
@@ -18,25 +19,52 @@ import com.mycompany.consts.ConstellationsLevel;
  * @author luisr
  */
 public class CharacterApp {
-    
-    private static Character character;
+    // TODO: update the character existance check.
     
     public static void main(String[] args){       
-        Character char1 = new Character(CharacterName.KINICH, Vision.DENDRO, Weapon.CLAYMORE, Rarity.FIVE_STARS, ConstellationsLevel.C1, "18/09/2024");
-
         SQLCommandsApp.loadDriver();
         SQLCommandsApp.createConnection();
-        /*
-        try {
-            SQLCommandsApp.insertObtainedCharacter(char1.getName(),
-                                                   char1.getVision(),
-                                                   char1.getWeapon(),
-                                                   char1.getRarity(),
-                                                   char1.getConstellationsLevel(),
-                                                   char1.getMeetDate());
-        } catch (SQLException characterInsertionError) {
-            System.out.println("Character insertion failed!");
-        }*/
+
+        Character char1 = new Character(CharacterName.ALHAITHAM, Vision.DENDRO, Weapon.SWORD, Rarity.FIVE_STARS, ConstellationsLevel.C3, "22/03/2022");
+
+        CharacterName characterName = char1.getName();
+        Vision characterVision = char1.getVision();
+        Weapon characterWeapon = char1.getWeapon();
+        Rarity characterRarity = char1.getRarity();
+        ConstellationsLevel characterConstellationsLevel = char1.getConstellationsLevel();
+        String characterMeetDate = char1.getMeetDate();
+        
+        // Checking if exists a Genshin Impact character with parameters given.
+        boolean characterExists = false;
+        for (AllCharacters character : AllCharacters.values()){
+            if (characterName != character.getCharacterName()){
+                System.out.println("Character not exists!");
+            }
+            else if (characterVision != character.getCharacterVision()){
+                System.out.println("Character not exists!");
+            }
+            else if (characterWeapon != character.getCharacterWeapon()){
+                System.out.println("Character not exists!");
+            }
+            else if (characterRarity != character.getCharacterRarity()){
+                System.out.println("Character not exists!");
+            }
+            else{characterExists = true;}
+        }
+        // End check.
+        
+        if (characterExists){            
+            try {
+                SQLCommandsApp.insertObtainedCharacter(characterName,
+                                                       characterVision,
+                                                       characterWeapon,
+                                                       characterRarity,
+                                                       characterConstellationsLevel,
+                                                       characterMeetDate);
+            } catch (SQLException characterInsertionError) {
+                System.out.println("Character insertion failed!");
+            }
+        } else{System.out.println("Character insertion failed!");}
 
         /*
         try {
@@ -60,10 +88,12 @@ public class CharacterApp {
         System.out.println(character.getMeetDate());
         */
 
+        /*
         try {
             SQLCommandsApp.updateObtainedCharacter(CharacterName.NEUVILLETTE);
         } catch (SQLException characterUpdateError) {
             System.out.println("Character update failed!");
         }
+        */
     }
 }
