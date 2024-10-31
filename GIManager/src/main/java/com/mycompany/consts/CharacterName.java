@@ -17,6 +17,7 @@ public enum CharacterName {
     ARATAKI_ITTO("Arataki Itto"),
     ARLECCHINO("Arlecchino"),
     // ------------------------------------------------------- |B|
+    BAIZHU("Baizhu"),
     BARBARA("Barbara"),
     BEIDOU("Beidou"),
     BENNET("Bennet"),
@@ -124,10 +125,16 @@ public enum CharacterName {
 
     private String characterName;
 
+    /**
+     * @param characterName
+     */
     CharacterName(String characterName){
         this.characterName = characterName;
     }
 
+    /**
+     * @return character's name
+     */
     public String getName(){
         return characterName;
     }

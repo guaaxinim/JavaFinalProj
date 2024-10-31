@@ -4,6 +4,7 @@
  */
 package com.mycompany.character;
 
+
 import java.sql.SQLException;
 
 import com.mycompany.consts.AllCharacters;
@@ -19,13 +20,12 @@ import com.mycompany.consts.ConstellationsLevel;
  * @author luisr
  */
 public class CharacterApp {
-    // TODO: update the character existance check.
     
     public static void main(String[] args){       
         SQLCommandsApp.loadDriver();
         SQLCommandsApp.createConnection();
 
-        Character char1 = new Character(CharacterName.ALHAITHAM, Vision.DENDRO, Weapon.SWORD, Rarity.FIVE_STARS, ConstellationsLevel.C3, "22/03/2022");
+        Character char1 = new Character(CharacterName.ZHONGLI, Vision.HYDRO, Weapon.CLAYMORE, Rarity.FIVE_STARS, ConstellationsLevel.C6, "22/12/2024");
 
         CharacterName characterName = char1.getName();
         Vision characterVision = char1.getVision();
@@ -38,13 +38,13 @@ public class CharacterApp {
         boolean characterExists = false;
         for (AllCharacters character : AllCharacters.values()){
             if (characterName != character.getCharacterName()){
-                System.out.println("Character not exists!");
+                System.out.println("Character name not exists!");
             }
             else if (characterVision != character.getCharacterVision()){
-                System.out.println("Character not exists!");
+                System.out.println("Character vision not exists!");
             }
             else if (characterWeapon != character.getCharacterWeapon()){
-                System.out.println("Character not exists!");
+                System.out.println("Character weapon not exists!");
             }
             else if (characterRarity != character.getCharacterRarity()){
                 System.out.println("Character not exists!");
@@ -60,7 +60,8 @@ public class CharacterApp {
                                                        characterWeapon,
                                                        characterRarity,
                                                        characterConstellationsLevel,
-                                                       characterMeetDate);
+                                                       characterMeetDate,
+                                                       null);
             } catch (SQLException characterInsertionError) {
                 System.out.println("Character insertion failed!");
             }

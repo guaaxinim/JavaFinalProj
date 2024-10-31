@@ -8,6 +8,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import java.sql.ResultSet;
 
 import com.mycompany.character.Character;
@@ -46,6 +50,25 @@ public class SQLCommandsApp implements DataBaseConsts{
     }
 
     /**
+     * 
+     * @param characterName
+     * @return
+     * @throws SQLException
+     */
+    public static boolean checkingCharacterExistanceInTable(CharacterName characterName, JButton buttonPressed) throws SQLException{
+        boolean characterNotYetRegistered = false;
+        
+        try {
+            Character characterToInsert = selectObtainedCharacter(characterName);
+            JOptionPane.showMessageDialog(buttonPressed, characterToInsert.getName()+" is already registered!", "Character insertion failed!", 2);
+        } catch (IllegalArgumentException characterSelectionError) {
+            characterNotYetRegistered = true;
+        }
+
+        return characterNotYetRegistered;
+    }
+
+    /**
      * Insert a new character in 'obtained_characters' table.
      * @param characterName
      * @param characterVision
@@ -55,18 +78,18 @@ public class SQLCommandsApp implements DataBaseConsts{
      * @param characterMeetDate
      * @throws SQLException
      */
-    public static void insertObtainedCharacter(CharacterName characterName, Vision characterVision, Weapon characterWeapon, Rarity characterRarity, ConstellationsLevel characterConstellationsLevel, String characterMeetDate) throws SQLException{
+    public static void insertObtainedCharacter(CharacterName characterName,
+                                               Vision characterVision,
+                                               Weapon characterWeapon,
+                                               Rarity characterRarity,
+                                               ConstellationsLevel characterConstellationsLevel,
+                                               String characterMeetDate,
+                                               JButton buttonPressed) throws SQLException{
 
-        boolean characterNotYetRegistered = false;
+    /* Checking if character already exists in table */
+        boolean characterNotYetRegistered = checkingCharacterExistanceInTable(characterName, buttonPressed);
 
-        try {
-            Character characterToInsert = selectObtainedCharacter(characterName);
-            System.out.println("Character "+characterToInsert.getName()+" is already in list!");
-            System.out.println("Insertion failed!");
-        } catch (IllegalArgumentException characterSelectionError) {
-            characterNotYetRegistered = true;
-        }
-
+    /* Inserting character */
         if (characterNotYetRegistered){
             String name = characterName.toString();
             String vision = characterVision.toString();
@@ -84,9 +107,9 @@ public class SQLCommandsApp implements DataBaseConsts{
                 preparedStatement.setString(5, constellationsLevel);
                 preparedStatement.setString(6, characterMeetDate);
                 preparedStatement.executeUpdate();
-                System.out.println("Character insertion successful!");
+                JOptionPane.showMessageDialog(buttonPressed, name+" was registered!", "Character insertion successful!", 1);
             } catch (SQLException characterInsertionError) {
-                System.out.println("Character insertion failed!");
+                JOptionPane.showMessageDialog(buttonPressed, "", "Character insertion failed!", 0);
             }
         }
     }
