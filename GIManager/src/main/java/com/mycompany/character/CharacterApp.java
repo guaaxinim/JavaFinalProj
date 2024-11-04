@@ -55,7 +55,7 @@ public class CharacterApp {
         
         if (characterExists){            
             try {
-                SQLCommandsApp.insertObtainedCharacter(characterName,
+                SQLCommandsApp.insertInObtainedCharacters(characterName,
                                                        characterVision,
                                                        characterWeapon,
                                                        characterRarity,
@@ -77,7 +77,7 @@ public class CharacterApp {
 
         /*
         try{
-            character = SQLCommandsApp.selectObtainedCharacter(CharacterName.KINICH);
+            character = SQLCommandsApp.selectObtainedCharacterByName(CharacterName.KINICH);
         } catch (SQLException characterSelectionError) {
             System.out.println("Character selection failed");
         }

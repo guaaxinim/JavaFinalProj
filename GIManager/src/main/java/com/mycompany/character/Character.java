@@ -51,6 +51,19 @@ public final class Character {
 
     /**
      * Constructs a Character object with the parameters given.
+     * @param name
+     * @param vision
+     * @param weapon
+     * @param rarity
+     */
+    public Character(CharacterName name, Vision vision, Weapon weapon, Rarity rarity){
+        this.name = name;
+        this.vision = vision;
+        this.weapon = weapon;
+        this.rarity = rarity;
+    }
+    /**
+     * Constructs a Character object with the parameters given.
      * @param name character's name.
      * @param vision vision that character wields.
      * @param weapon weapon that character wields.
@@ -59,17 +72,12 @@ public final class Character {
      * @param meetDate character's obtaining date.
      */
     public Character(CharacterName name, Vision vision, Weapon weapon, Rarity rarity, ConstellationsLevel constellationsLevel, String meetDate){
-        if (name == null || vision == null || weapon == null || rarity == null || constellationsLevel == null || meetDate == null){
-            System.out.println("Cannot create a Character with 'null' parameters!");
-        }
-        else{
-            this.name = name;
-            this.vision = vision;
-            this.weapon = weapon;
-            this.rarity = rarity;
-            this.constellationsLevel = constellationsLevel;
-            this.meetDate = meetDate;
-        }
+        this.name = name;
+        this.vision = vision;
+        this.weapon = weapon;
+        this.rarity = rarity;
+        this.constellationsLevel = constellationsLevel;
+        this.meetDate = meetDate;
     }
 
     /**

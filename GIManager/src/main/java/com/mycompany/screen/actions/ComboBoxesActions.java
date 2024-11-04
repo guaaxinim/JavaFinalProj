@@ -1,4 +1,4 @@
-package com.mycompany.screen;
+package com.mycompany.screen.actions;
 
 import java.util.ArrayList;
 
